@@ -1,0 +1,87 @@
+{
+  "name": "rating-stars",
+  "version": "1.1.0",
+  "description": "Vainilla JavaScript Camera Component",
+  "keywords": [
+    "webcam",
+    "camera",
+    "snapshot",
+    "picture",
+    "take picture",
+    "js snapshot",
+    "js picture",
+    "js camera",
+    "javascript snapshot",
+    "javascript picture",
+    "javascript camera",
+    "html5 snapshot",
+    "html5 picture",
+    "html5 camera"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/rating-stars/rating-stars.esm.js",
+  "repository": {
+    "url": "https://github.com/appfeel/rating-stars.git"
+  },
+  "author": {
+    "url": "https://appfeel.com",
+    "name": "AppFeel"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs && npm run readme",
+    "lint": "echo 'Running linter, please wait...' && (npm run lint-plain || (npm run lint-report; exit -1))",
+    "lint-plain": "./node_modules/.bin/eslint --ext .js,.jsx,.ts,.tsx src/ --ignore-path .eslintignore",
+    "lint-report": "./node_modules/.bin/eslint --ext .js,.jsx,.ts,.tsx src/ --ignore-path .eslintignore -f ./node_modules/eslint-html-reporter/reporter.js -o logs/eslint-report.html || opn ./logs/eslint-report.html",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "release": "dotenv release-it",
+    "readme": "sh scripts/createReadme.sh"
+  },
+  "dependencies": {
+    "@ionic/core": "^5.6.7",
+    "@stencil/core": "^2.18.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/jest": "^26.0.22",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.47",
+    "@types/redux-logger": "^3.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-html-reporter": "^0.7.4",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "pre-push": "^0.1.1",
+    "redux-logger": "^3.0.6",
+    "release-it": "^14.7.0",
+    "typescript": "^4.6.2"
+  },
+  "pre-push": [
+    "lint"
+  ]
+}

@@ -2,14 +2,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Component, Prop, State, h, Event, EventEmitter } from '@stencil/core';
 
-import Logger from '../../helpers/logger';
 
 @Component({
-    tag: 'app-rating-component',
-    styleUrl: 'app-rating-component.css',
+    tag: 'rating-stars',
+    styleUrl: 'rating-stars.css',
     shadow: true,
 })
-export class MyRatingComponent {
+export class RatingStars {
+    /** Permite editar el valor */
+    @Prop() isEditable = true;
     /** Maxim nombre d'estrelles */
     @Prop() maxValue = 5;
     /** Valor del rating */
@@ -20,16 +21,22 @@ export class MyRatingComponent {
     /** Event que s'emet quan es clicka una estrella */
     @Event() ratingUpdated: EventEmitter;
 
-    logger: Logger = new Logger();
-
     componentWillLoad() {
         this.createStarList(this.value);
     }
 
-    setValue(newValue) {
-        this.value = newValue;
-        this.createStarList(this.value);
-        this.ratingUpdated.emit({ value: this.value });
+    handleSetValue(newValue: number) {
+        if (this.isEditable) {
+            this.value = newValue;
+            this.createStarList(this.value);
+            this.ratingUpdated.emit({ value: this.value });
+        }
+    }
+
+    handleChangeValue(newValue: number) {
+        if (this.isEditable) {
+            this.createStarList(newValue);
+        }
     }
 
     createStarList(numberOfStars: number) {
@@ -40,11 +47,9 @@ export class MyRatingComponent {
                 starList.push(
                     <span
                         class="rating"
-                        onMouseOver={() => this.createStarList(i)}
-                        onFocus={e => this.logger.log(e)}
-                        onMouseOut={() => this.createStarList(this.value)}
-                        onBlur={e => this.logger.log(e)}
-                        onClick={() => this.setValue(i)}
+                        onMouseOver={() => this.handleChangeValue(i)}
+                        onMouseOut={() => this.handleChangeValue(this.value)}
+                        onClick={() => this.handleSetValue(i)}
                     >
                         &#x2605;
                     </span>,
@@ -53,11 +58,9 @@ export class MyRatingComponent {
                 starList.push(
                     <span
                         class="rating"
-                        onMouseOver={() => this.createStarList(i)}
-                        onFocus={e => this.logger.log(e)}
-                        onMouseOut={() => this.createStarList(this.value)}
-                        onBlur={e => this.logger.log(e)}
-                        onClick={() => this.setValue(i)}
+                        onMouseOver={() => this.handleChangeValue(i)}
+                        onMouseOut={() => this.handleChangeValue(this.value)}
+                        onClick={() => this.handleSetValue(i)}
                     >
                         &#x2606;
                     </span>,
@@ -65,6 +68,7 @@ export class MyRatingComponent {
             }
         }
         this.starList = starList;
+        return starList;
     }
 
     render() {
