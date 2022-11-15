@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Component, Prop, State, h, Event, EventEmitter } from '@stencil/core';
 
-
 @Component({
     tag: 'rating-stars',
     styleUrl: 'rating-stars.css',
@@ -46,10 +45,12 @@ export class RatingStars {
             if (i <= numberOfStars) {
                 starList.push(
                     <span
-                        style={{color: this.color}}
+                        style={{ color: this.color }}
                         class="rating"
                         onMouseOver={() => this.handleChangeValue(i)}
+                        onFocus={() => { }}
                         onMouseOut={() => this.handleChangeValue(this.value)}
+                        onBlur={() => { }}
                         onClick={() => this.handleSetValue(i)}
                     >
                         &#x2605;
@@ -58,10 +59,12 @@ export class RatingStars {
             } else {
                 starList.push(
                     <span
-                        style={{color: this.color}}
+                        style={{ color: this.color }}
                         class="rating"
                         onMouseOver={() => this.handleChangeValue(i)}
+                        onFocus={() => { }}
                         onMouseOut={() => this.handleChangeValue(this.value)}
+                        onBlur={() => { }}
                         onClick={() => this.handleSetValue(i)}
                     >
                         &#x2606;
