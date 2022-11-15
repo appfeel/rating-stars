@@ -46,7 +46,7 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "release": "dotenv release-it",
+    "release": "dotenv release-it --",
     "readme": "sh scripts/createReadme.sh"
   },
   "dependencies": {
