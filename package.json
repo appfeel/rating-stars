@@ -1,5 +1,5 @@
 {
-  "name": "rating-stars",
+  "name": "rating-stars-js",
   "version": "1.1.0",
   "description": "Vainilla JavaScript Camera Component",
   "keywords": [
@@ -27,7 +27,7 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/rating-stars/rating-stars.esm.js",
   "repository": {
-    "url": "https://github.com/appfeel/rating-stars.git"
+    "url": "https://github.com/appfeel/rating-stars-js.git"
   },
   "author": {
     "url": "https://appfeel.com",
@@ -51,7 +51,8 @@
   },
   "dependencies": {
     "@ionic/core": "^5.6.7",
-    "@stencil/core": "^2.18.0"
+    "@stencil/core": "^2.18.0",
+    "dotenv-cli": "^6.0.0"
   },
   "license": "MIT",
   "devDependencies": {
