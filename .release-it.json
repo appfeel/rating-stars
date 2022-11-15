@@ -1,5 +1,6 @@
 {
     "hooks": {
+        "before:init": ["npm run build"],
         "after:github:release": "git push -u origin"
     },
     "git": {
