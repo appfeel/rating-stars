@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property     | Attribute     | Description              | Type      | Default |
-| ------------ | ------------- | ------------------------ | --------- | ------- |
-| `isEditable` | `is-editable` | Permite editar el valor  | `boolean` | `true`  |
-| `maxValue`   | `max-value`   | Maxim nombre d'estrelles | `number`  | `5`     |
-| `value`      | `value`       | Valor del rating         | `number`  | `0`     |
+| Property     | Attribute     | Description              | Type      | Default    |
+| ------------ | ------------- | ------------------------ | --------- | ---------- |
+| `color`      | `color`       |                          | `string`  | `'orange'` |
+| `isEditable` | `is-editable` | Permite editar el valor  | `boolean` | `true`     |
+| `maxValue`   | `max-value`   | Maxim nombre d'estrelles | `number`  | `5`        |
+| `value`      | `value`       | Valor del rating         | `number`  | `0`        |
 
 
 ## Events

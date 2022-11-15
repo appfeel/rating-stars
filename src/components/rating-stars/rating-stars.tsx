@@ -15,7 +15,7 @@ export class RatingStars {
     @Prop() maxValue = 5;
     /** Valor del rating */
     @Prop({ mutable: true }) value = 0;
-
+    @Prop({ mutable: true }) color = 'orange';
     @State() starList: Array<Record<string, unknown>> = [];
 
     /** Event que s'emet quan es clicka una estrella */
@@ -46,6 +46,7 @@ export class RatingStars {
             if (i <= numberOfStars) {
                 starList.push(
                     <span
+                        style={{color: this.color}}
                         class="rating"
                         onMouseOver={() => this.handleChangeValue(i)}
                         onMouseOut={() => this.handleChangeValue(this.value)}
@@ -57,6 +58,7 @@ export class RatingStars {
             } else {
                 starList.push(
                     <span
+                        style={{color: this.color}}
                         class="rating"
                         onMouseOver={() => this.handleChangeValue(i)}
                         onMouseOut={() => this.handleChangeValue(this.value)}

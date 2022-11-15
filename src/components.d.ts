@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface RatingStars {
+        "color": string;
         /**
           * Permite editar el valor
          */
@@ -38,6 +39,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface RatingStars {
+        "color"?: string;
         /**
           * Permite editar el valor
          */
